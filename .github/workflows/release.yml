@@ -64,6 +64,14 @@ jobs:
       #     name: Windows-X64
       #     path: valve/x86_64/Windows
 
+      - uses: actions/checkout@v2
+      - uses: wizhi/setup-buf@v1
+        with:
+          version: '0.36.0'
+      - uses: arduino/setup-protoc@v1
+        with:
+          version: '3.x'
+
       - name: Update plugin template files
         run: |
           cargo run --bin create_plugin_template_files --release
