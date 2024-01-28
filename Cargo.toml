@@ -2,7 +2,8 @@
 name = "valve"
 description = "Set a flow limit on the extruder"
 version = "0.1.0"
-repository = "https://github.com/casperlamboo/Valve"
+repository = "https://github.com/casperlamboo/Valve/"
+homepage = "https://github.com/casperlamboo/"
 edition = "2021"
 authors = [
     "Casper Lamboo <casperlamboo@gmail.com, casper.lamboo@ultimaker.com>",
