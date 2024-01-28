@@ -4,6 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  windows-installer:
+    uses: ./.github/workflows/build.yml
+    with:
+      architecture: X64
+      operating_system: windows-2022
+    secrets: inherit
+
   linux-modern-installer:
     uses: ./.github/workflows/build.yml
     with:
@@ -18,37 +25,48 @@ jobs:
       operating_system: macos-11.0
     secrets: inherit
 
+  macos-arm-installer:
+    uses: ./.github/workflows/build.yml
+    with:
+      architecture: ARM64
+      operating_system: macos-13-xlarge
+    secrets: inherit
+
   create-curapackages:
     runs-on: "ubuntu-latest"
-    needs: [ linux-modern-installer, macos-installer ]
+    # needs: [ linux-modern-installer, macos-installer ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Download linux modern binary artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: Linux-X64
-          path: valve/x86_64/Linux
+      # - name: Download linux modern binary artifacts
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: Linux-X64
+      #     path: valve/x86_64/Linux
 
-      - name: Download mac x64 binary artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: macOS-X64
-          path: valve/x86_64/Darwin
+      # - name: Download mac x64 binary artifacts
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: macOS-X64
+      #     path: valve/x86_64/Darwin
 
-      - name: Download mac arm binaries artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: macOS-ARM64
-          path: valve/arm64/Darwin
+      # - name: Download mac arm binaries artifacts
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: macOS-ARM64
+      #     path: valve/arm64/Darwin
 
-      - name: Download win X64 binaries artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: Windows-X64
-          path: valve/x86_64/Windows
+      # - name: Download win X64 binaries artifacts
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: Windows-X64
+      #     path: valve/x86_64/Windows
+
+      - name: Update plugin template files
+        run: |
+          cargo run --bin create_plugin_template_files --release
 
       - name: Upload the Cura plugin source
         uses: actions/upload-artifact@v3
@@ -57,10 +75,6 @@ jobs:
           path: |
             valve/**/*
           retention-days: 5
-
-      - name: Update plugin template files
-        run: |
-          cargo run --bin create_plugin_template_files --release
 
       - uses: fieldOfView/cura-plugin-packager-action@main
         with:
