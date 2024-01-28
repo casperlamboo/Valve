@@ -66,7 +66,7 @@ jobs:
 
       - name: Update plugin template files
         run: |
-          cargo build
+          cargo run --bin create_plugin_template_files --release
 
       - name: Upload the Cura plugin source
         uses: actions/upload-artifact@v3
