@@ -64,9 +64,6 @@ jobs:
           name: Windows-X64
           path: valve/x86_64/Windows
 
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Install Protobuf
         uses: bufbuild/buf-setup-action@v1.29.0
       - name: Install Protoc
