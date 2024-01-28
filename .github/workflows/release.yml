@@ -5,7 +5,7 @@ on:
 
 jobs:
   windows-installer:
-    uses: ./.github/workflows/windows.yml
+    uses: ./.github/workflows/build.yml
     with:
       architecture: X64
       operating_system: windows-2022
