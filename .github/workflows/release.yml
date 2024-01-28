@@ -4,33 +4,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  windows-installer:
-    uses: ./.github/workflows/build.yml
-    with:
-      architecture: X64
-      operating_system: windows-2022
-    secrets: inherit
+  # windows-installer:
+  #   uses: ./.github/workflows/build.yml
+  #   with:
+  #     architecture: X64
+  #     operating_system: windows-2022
+  #   secrets: inherit
 
-  linux-modern-installer:
-    uses: ./.github/workflows/build.yml
-    with:
-      architecture: X64
-      operating_system: ubuntu-22.04
-    secrets: inherit
+  # linux-modern-installer:
+  #   uses: ./.github/workflows/build.yml
+  #   with:
+  #     architecture: X64
+  #     operating_system: ubuntu-22.04
+  #   secrets: inherit
 
-  macos-installer:
-    uses: ./.github/workflows/build.yml
-    with:
-      architecture: X64
-      operating_system: macos-11.0
-    secrets: inherit
+  # macos-installer:
+  #   uses: ./.github/workflows/build.yml
+  #   with:
+  #     architecture: X64
+  #     operating_system: macos-11.0
+  #   secrets: inherit
 
-  macos-arm-installer:
-    uses: ./.github/workflows/build.yml
-    with:
-      architecture: ARM64
-      operating_system: macos-13-xlarge
-    secrets: inherit
+  # macos-arm-installer:
+  #   uses: ./.github/workflows/build.yml
+  #   with:
+  #     architecture: ARM64
+  #     operating_system: macos-13-xlarge
+  #   secrets: inherit
 
   create-curapackages:
     runs-on: "ubuntu-latest"
