@@ -45,12 +45,6 @@ jobs:
           name: macOS-X64
           path: valve/x86_64/Darwin
 
-      - name: Download mac arm binaries artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: macOS-ARM64
-          path: valve/arm64/Darwin
-
       - name: Download win X64 binaries artifacts
         uses: actions/download-artifact@v3
         with:
