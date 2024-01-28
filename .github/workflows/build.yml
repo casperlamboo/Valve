@@ -6,12 +6,10 @@ on:
       operating_system:
         description: 'OS'
         required: true
-        default: 'ubuntu-latest'
         type: string
       architecture:
         description: 'Architecture'
         required: true
-        default: 'X64'
         type: string
 
 jobs:
