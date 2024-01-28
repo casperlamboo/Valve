@@ -14,7 +14,7 @@ path = "src/main.rs"
 
 [[bin]]
 name = "create_plugin_template_files"
-path = "src/create_plugin_template_files.rs"
+path = "create_plugin_template_files.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
