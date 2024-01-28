@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ inputs.operating_system }}
+    runs-on: ${{ inputs.operating_system }}, ${{ inputs.architecture }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
