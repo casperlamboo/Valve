@@ -18,16 +18,9 @@ jobs:
       operating_system: macos-11.0
     secrets: inherit
 
-  macos-arm-installer:
-    uses: ./.github/workflows/build.yml
-    with:
-      architecture: ARM64
-      operating_system: macos-13-large
-    secrets: inherit
-
   create-curapackages:
     runs-on: "ubuntu-latest"
-    needs: [ linux-modern-installer, macos-installer, macos-arm-installer]
+    needs: [ linux-modern-installer, macos-installer]
 
     steps:
       - name: Checkout
