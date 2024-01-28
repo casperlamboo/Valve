@@ -38,6 +38,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             homepage => env!("CARGO_PKG_HOMEPAGE").to_string(),
             repository => env!("CARGO_PKG_REPOSITORY").to_string(),
             name => env!("CARGO_PKG_NAME").to_string(),
+            package_id => env!("CARGO_PKG_NAME").to_string(),
             version => env!("CARGO_PKG_VERSION").to_string(),
             description => env!("CARGO_PKG_DESCRIPTION").to_string(),
         },
