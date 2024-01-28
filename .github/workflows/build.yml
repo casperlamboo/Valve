@@ -18,13 +18,14 @@ jobs:
   build:
     runs-on: ${{ inputs.operating_system }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: wizhi/setup-buf@v1
-        with:
-          version: '0.36.0'
-      - uses: arduino/setup-protoc@v1
-        with:
-          version: '3.x'
+      - name: Install Protobuf
+        # Run `git checkout`
+        - uses: actions/checkout@v2
+        # Install the `buf` CLI
+        - uses: bufbuild/buf-setup-action@v1.29.0
+        - uses: arduino/setup-protoc@v1
+          with:
+            version: '3.x'
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
