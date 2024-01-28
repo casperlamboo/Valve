@@ -22,7 +22,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       architecture: ARM64
-      operating_system: macos-13.0
+      operating_system: macos-13-large
     secrets: inherit
 
   create-curapackages:
