@@ -28,9 +28,19 @@ jobs:
           version: '3.x'
       - name: Build
         run: cargo build --release
+      
       - name: Upload the binary artifacts
+        if: ${{ runner.os != 'Windows' }}
         uses: actions/upload-artifact@v3
         with:
           name: ${{ runner.os }}-${{ runner.arch }}
           path: target/release/valve
+          retention-days: 5
+
+      - name: Upload the binary artifacts
+        if: ${{ runner.os == 'Windows' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ runner.os }}-${{ runner.arch }}
+          path: target/release/valve.exe
           retention-days: 5
