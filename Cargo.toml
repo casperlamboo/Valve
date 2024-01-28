@@ -2,10 +2,19 @@
 name = "valve"
 description = "Set a flow limit on the extruder"
 version = "0.1.0"
+repository = "https://github.com/casperlamboo/Valve"
 edition = "2021"
 authors = [
     "Casper Lamboo <casperlamboo@gmail.com, casper.lamboo@ultimaker.com>",
 ]
+
+[[bin]]
+name = "valve"
+path = "src/main.rs"
+
+[[bin]]
+name = "create_plugin_template_files"
+path = "src/create_plugin_template_files.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -15,6 +24,7 @@ tonic = "0.9.2"
 prost = "0.11.9"
 tokio = { version = "1.28.1", features = ["macros", "rt-multi-thread"] }
 clap = { version = "4.4.18", features = ["derive"] }
+minijinja = "1.0.12"
 
 [env]
 CURA_API_VERSION = 8

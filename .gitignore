@@ -1,6 +1,7 @@
 /target
 
 /valve/plugin.json
+/valve/package.json
 /valve/constants.py
 /valve/__pycache__
 

@@ -20,7 +20,7 @@ jobs:
 
   create-curapackages:
     runs-on: "ubuntu-latest"
-    needs: [ linux-modern-installer, macos-installer]
+    needs: [ linux-modern-installer, macos-installer ]
 
     steps:
       - name: Checkout
@@ -58,10 +58,14 @@ jobs:
             valve/**/*
           retention-days: 5
 
+      - name: Update plugin template files
+        run: |
+          cargo run --bin create_plugin_template_files --release
+
       - uses: fieldOfView/cura-plugin-packager-action@main
         with:
-          source_folder: "cura-plugin/CuraEngineGradualFlow"
-          package_info_path: "cura-plugin/CuraEngineGradualFlow/package.json"
+          source_folder: "valve"
+          package_info_path: "valve/package.json"
 
       - name: Upload the Cura package
         uses: actions/upload-artifact@v3
