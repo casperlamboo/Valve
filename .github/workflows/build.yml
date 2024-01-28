@@ -18,7 +18,11 @@ jobs:
   build:
     runs-on: ${{ inputs.operating_system }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Build
-      run: cargo build --release
+      - uses: actions/checkout@v2
+      - uses: wizhi/setup-buf@v1
+        with:
+          version: '0.36.0'
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: cargo build --release
