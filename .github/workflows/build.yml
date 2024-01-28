@@ -1,26 +1,16 @@
 name: build
 
 on:
-  workflow_dispatch:
-    inputs:
-      operating_system:
-      description: 'OS'
-      required: true
-      default: 'ubuntu-latest'
-    architecture:
-      description: 'Architecture'
-      required: true
-      default: 'X64'
   workflow_call:
     inputs:
       operating_system:
-      description: 'OS'
-      required: true
-      default: 'ubuntu-latest'
-    architecture:
-      description: 'Architecture'
-      required: true
-      default: 'X64'
+        description: 'OS'
+        required: true
+        default: 'ubuntu-latest'
+      architecture:
+        description: 'Architecture'
+        required: true
+        default: 'X64'
 
 jobs:
   build:
