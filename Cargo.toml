@@ -1,0 +1,20 @@
+[package]
+name = "valve"
+description = "Set a flow limit on the extruder"
+version = "0.1.0"
+edition = "2021"
+authors = [
+    "Casper Lamboo <casperlamboo@gmail.com, casper.lamboo@ultimaker.com>",
+]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+curaengine_grpc_definitions = { git = "https://github.com/Ultimaker/CuraEngine_grpc_definitions", rev = "12884bb34d453d292725fd86956c5f3b1505748b" }
+tonic = "0.9.2"
+prost = "0.11.9"
+tokio = { version = "1.28.1", features = ["macros", "rt-multi-thread"] }
+clap = { version = "4.4.18", features = ["derive"] }
+
+[env]
+CURA_API_VERSION = 8

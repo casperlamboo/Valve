@@ -1,0 +1,17 @@
+{
+  "material": {
+    "children": {
+      "max_flow": {
+        "label": "Maximum flow",
+        "description": "Setting this setting to a non-zero value will limit the maximum flow rate of the extruder. The change in flow will be achieved by altering the velocity of the paths that violate the max flow. When set to 0 the setting is disabled.",
+        "type": "float",
+        "unit": "mm\u00b3\/s",
+        "default_value": 0,
+        "maximum_value_warning": 99999,
+        "minimum_value": 0,
+        "settable_per_mesh": false,
+        "settable_per_extruder": true
+      }
+    }
+  }
+}

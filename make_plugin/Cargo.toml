@@ -1,0 +1,11 @@
+[package]
+name = "make_plugin"
+description = "A tool to generate a Cura plugin from a CuraEngine plugin."
+version = "0.1.0"
+edition = "2021"
+authors = [
+    "Casper Lamboo <casperlamboo@gmail.com, casper.lamboo@ultimaker.com>",
+]
+
+[dependencies]
+minijinja = "1.0.12"

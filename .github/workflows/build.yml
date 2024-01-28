@@ -1,0 +1,8 @@
+name: build
+
+jobs:
+  build:
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: cargo build --verbose --release
